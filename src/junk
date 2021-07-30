@@ -1,0 +1,217 @@
+const useStyles = makeStyles({
+  root: {
+    background: 'linear-gradient(45deg, #fe6888, #ff8e53)',
+    border: 0,
+    marginBottom: 15,
+    borderRadius: 15,
+    color: 'white',
+    padding: '5px 30px'
+  }
+})
+
+const theme = createMuiTheme({
+  
+  typography:{
+    h2:{
+      fontSize: 25,
+    }
+  },
+  
+  palette: {
+    primary: {
+      main: '#6114a4',
+    },
+    secondary: {
+      main: '#0e9dd9',
+    },
+  },
+
+})
+
+function Buttonstyled(){
+    const classes = useStyles();
+    return <Button className={classes.root}>Test Styled Button</Button>
+}
+
+function CheckboxExample(){
+  const[checked, setChecked] = React.useState(true)
+  return(
+    <FormControlLabel
+      control={<Checkbox
+        checked={checked}
+        icon={<DeleteIcon/>}
+        checkedIcon={<SaveIcon/>}
+        onChange={(e) => setChecked(e. target.checked)}
+        color='primary'
+        inputProps={{
+          'aria-label' : 'secondary checkbox'
+        }}
+      />}
+    label='Testing Checkbox'
+    />
+  )
+}
+
+
+function App() {
+  return (
+    <ThemeProvider theme={theme}>
+      <Container maxWidth='lg'>
+    <div className="App">
+      <header className="App-header">
+        <AppBar color='secondary'>
+          <Toolbar>
+            <IconButton>
+              <MenuIcon/>
+            </IconButton>
+            <Typography varaiant='h6'>
+                MUI Themeing
+            </Typography>
+            <Button>
+              Login
+            </Button>
+          </Toolbar>
+        </AppBar>
+        <Typography variant='h2'>
+          Hello To Litework
+        </Typography>
+        <Typography variant='body1'>
+          Powered by Tsurge
+        </Typography>
+      <Buttonstyled/>
+      <Grid container spacing={2} justify="center">
+      <Grid  item xs={3} sm={6}>
+        <Paper style={{ height:75,width:100,}}/>
+      </Grid>
+      <Grid  item xs={3} sm={6}>
+        <Paper style={{ height:75,width:100,}}/>
+      </Grid>
+      <Grid  item xs={3} lg={12}>
+        <Paper style={{ height:75,width:100,}}/>
+      </Grid>
+      </Grid>
+      <CheckboxExample/>
+      <ButtonGroup>
+        <Button
+        startIcon={<SaveIcon/>}
+         size = 'medium' 
+         variant ='contained' 
+         color='primary'>
+          Save
+        </Button>
+        <Button
+        startIcon={<DeleteIcon/>}
+         size = 'medium' 
+         variant ='contained' 
+         color='secondary'> 
+          Discard
+        </Button>
+      </ButtonGroup>
+        <img src={logo} className="App-logo" alt="logo" />
+     </header>
+     
+    </div>
+    </Container>
+    </ThemeProvider>
+  );
+}
+
+export default App;
+
+
+
+
+const theme = createMuiTheme({
+  
+  typography:{
+    h2:{
+      fontSize: 25,
+    },
+
+    h4: {
+      fontFamily:"Black ops one"
+    }
+  
+  },
+  
+  palette: {
+    primary: {
+      main: '#6114a4',
+    },
+    secondary: {
+      main: '#0e9dd9',
+    },
+  },
+
+})
+
+
+
+
+
+
+function CheckboxExample(){
+  const[checked, setChecked] = React.useState(true)
+  return(
+    <FormControlLabel
+      control={<Checkbox
+        checked={checked}
+        icon={<DeleteIcon/>}
+        checkedIcon={<SaveIcon/>}
+        onChange={(e) => setChecked(e. target.checked)}
+        color='primary'
+        inputProps={{
+          'aria-label' : 'secondary checkbox'
+        }}
+      />}
+    label='Testing Checkbox'
+    />
+  )
+}
+
+
+function Nav() {
+   const classes = useStyles();
+  return (
+    <ThemeProvider theme={theme}>
+      <Container maxWidth='lg'>
+    <div className="App">
+      <header className="App-header">
+        <AppBar  className='app-b'color='secondary'>
+          <Toolbar>
+            
+            <Typography variant='h4'>
+                GIDIFUSION
+            </Typography>
+            <Button 
+            color='primary' 
+            variant= 'contained'
+            size='small'
+            className={classes.headerbutton}>
+              About Us
+            </Button>
+            
+            <Button 
+            color='primary' 
+            variant= 'contained'
+            size='small'
+            className={classes.headerbutton}>
+              Contact Us
+            </Button>
+          </Toolbar>
+        </AppBar>
+
+
+       
+      
+    
+
+        
+             
+     </header>
+     
+    </div>
+    </Container>
+    </ThemeProvider>
+  );
+}
