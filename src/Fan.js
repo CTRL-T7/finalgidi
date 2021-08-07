@@ -10,26 +10,14 @@ import  Button from '@material-ui/core/Button';
 import  FormControl from '@material-ui/core/FormControl';
 import 'fontsource-roboto';
 import "@fontsource/black-ops-one";
-import Link from '@material-ui/core/Link';
-import Box from '@material-ui/core/Box';
-import TwitterIcon from '@material-ui/icons/Twitter';
-import InstagramIcon from '@material-ui/icons/Instagram';
-import EmailIcon from '@material-ui/icons/Email';
-import IconButton from '@material-ui/core/IconButton';
 import ConfirmationNumberSharpIcon from '@material-ui/icons/ConfirmationNumberSharp';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
 import InputAdornment from '@material-ui/core/InputAdornment';
 
 
 const theme = createMuiTheme({
   
     typography:{
-      h2:{
-        paddingBottom:0,
-        fontFamily:"Black ops one",
-        marginBottom:0,
-        borderBottom:0,
-      },
+     
   
       h4: {
         fontFamily:"Black ops one",
@@ -106,12 +94,7 @@ const useStyles = makeStyles((theme)=>({
       flexDirection: 'column',
       alignItems: 'center',
     },
-    avatar: {
-        marginTop:15,
-        marginBottom: 0,
-        
-      
-    },
+   
     form: {
       width: '100%', // Fix IE 11 issue.
       marginBottom:20,
@@ -122,39 +105,13 @@ const useStyles = makeStyles((theme)=>({
       
     },
   
-    headerbutton:{
-        marginLeft:10,
-        
-    },
-
-    formetitle: {
-      
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-    },
+   
     
-    realform: {
-      width: '100%', // Fix IE 11 issue.
-      
-    },
-    signup: {
-      
-    },
+    
+    
   }));
 
-  function Copyright() {
-    return (
-      <Typography variant="body2" color="textSecondary" align="center">
-        {'Copyright © '}
-        <Link color="inherit" href="https://material-ui.com/">
-          TsurgeNg
-        </Link>{' '}
-        {new Date().getFullYear()}
-        {'.'}
-      </Typography>
-    );
-  }
+ 
 
 
 
@@ -237,14 +194,7 @@ function Fan() {
                     
                     />
 
-                    <TextField fullWidth
-                    name='Dob' 
-                    variant='outlined'
-                    type= 'date'
-                    label='DOB'
-                    placeholder='DOB'
                     
-                    />
                       <Button className={classes.submit} type='submit' variant='contained' color='primary' fullWidth >Sign UP</Button>
                      
                 </form>

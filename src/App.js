@@ -12,7 +12,7 @@ import Fan from "./Fan";
 import About from "./About";
 import Footer from "./Footer";
 import Coach from "./Coach"
-
+import Soon from  "./Soon"
 
 function App() {
   return(
@@ -28,7 +28,7 @@ function App() {
           <Route path='/About'  component={About}/>
           <Route path='/Coach'  component={Coach}/>
           </Switch>
-         
+          <Route path='/Soon'  component={Soon}/>
           <Footer/>
 
       </div>

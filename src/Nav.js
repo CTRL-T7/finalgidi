@@ -9,63 +9,49 @@ import "@fontsource/black-ops-one";
 import  IconButton from '@material-ui/core/IconButton';
 import  AppBar from '@material-ui/core/AppBar';
 import  Toolbar from '@material-ui/core/Toolbar';
-import { NavLink, Link as RouterLink } from 'react-router-dom';
+import {  Link as RouterLink } from 'react-router-dom';
+import Link from '@material-ui/core/Link';
 import   Drawer from '@material-ui/core/Drawer';
 import   MenuItem from '@material-ui/core/MenuItem';
-import ConfirmationNumberSharpIcon from '@material-ui/icons/ConfirmationNumberSharp';
+import MenuIcon from '@material-ui/icons/Menu';
 
 
+
+const headersData = [
+  {
+    label: "Ticket",
+    href: "./fan",
+  },
+  {
+    label: "About Us",
+    href: "./About",
+  },
+  
+];
 
 
 const theme = createMuiTheme({
   
     typography:{
-      h2:{
-        paddingBottom:0,
-        fontFamily:"Black ops one",
-        marginBottom:0,
-        borderBottom:0,
-      },
-  
-      h4: {
+     
+      h6: {
         fontFamily:"Black ops one",
         
       },
   
-      subtitle2:{
-                fontSize:50,
-                marginTop:0,
-                borderTop:0,
-                marginBottom:40,
-                paddingTop:0,
-                fontFamily:'shadows Into light'
-      },
-  
-      body1:{
-              marginBottom:30,
-              marginTop:30,
-              fontFamily: 'merriweather sans',
-              fontSize: 16,
-      }
-    
+     
     },
     
     palette: {
       primary: {
         main: '#0e9dd9',
-      
-        
-      },
-      secondary: {
-        main: '#6114a4',
-        
-        
-        
       },
 
-      stationary:{
-        main:'#e9bc05',
-      }
+      secondary: {
+        main: '#6114a4',  
+      },
+
+      
     },
   
   })
@@ -78,67 +64,32 @@ const theme = createMuiTheme({
       height: '100vh',
     },
   
-    image: {
-      backgroundImage: 'url(https://source.unsplash.com/-oJY05NPMFA/640x960)',
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      marginTop:15,
+
+    logo: {
+      fontFamily: "Black ops one",
+      fontWeight: 600,
+      color: "#FFFEFE",
+      textAlign: "left",
     },
-    paper: {
-      
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
+
+    menuButton: {
+      fontFamily: "Roboto",
+      fontWeight: 700,
+      size: "18px",
+      marginLeft: "38px",
     },
-    avatar: {
-        marginTop:15,
-        marginBottom: 0,
-        
-      
+
+    toolbar: {
+      display: "flex",
+      justifyContent: "space-between",
     },
-    form: {
-      width: '100%', // Fix IE 11 issue.
-      
+
+
+    drawerContainer: {
+      padding: "20px 30px",
     },
-    submit: {
-      marginBottom:10,
-      marginTop:5,
-    },
+
   
-    headerbutton:{
-
-        marginLeft:10,
-    },
-
-    ticketbutton:{
-
-      color:'#000',
-      backgroundColor:'#FBF608',
-      fontWeight:'bold',
-    },
-
-    formetitle: {
-      
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-    },
-
-    realform: {
-      width: '100%', // Fix IE 11 issue.
-      
-    },
-    Appheader: {
-      
-    },
-
-
-
-    title: {
-    
-    },
-
   }));
 
 
@@ -147,13 +98,14 @@ const theme = createMuiTheme({
 
 
 function Nav() {
-    const classes = useStyles();
+    const { logo, menuButton, toolbar, drawerContainer } = useStyles();
 
     const [state, setState] = useState({
       mobileView: false,
+      drawerOpen:false,
     });
   
-    const { mobileView } = state;
+    const { mobileView, drawerOpen } = state;
   
     useEffect(() => {
       const setResponsiveness = () => {
@@ -170,53 +122,117 @@ function Nav() {
       }
     },[]);
 
+
+    const displayDesktop = () => {
+      return (
+        <Toolbar className={toolbar}>
+          {femmecubatorLogo}
+          <div>{getMenuButtons()}</div>
+        </Toolbar>
+      );
+    };
+
+
+    const displayMobile = () => {
+      const handleDrawerOpen = () =>
+        setState((prevState) => ({ ...prevState, drawerOpen: true }));
+      const handleDrawerClose = () =>
+        setState((prevState) => ({ ...prevState, drawerOpen: false }));
+  
+
+
+
+        return (
+          <Toolbar>
+            <IconButton
+              {...{
+                edge: "start",
+                color: "inherit",
+                "aria-label": "menu",
+                "aria-haspopup": "true",
+                onClick: handleDrawerOpen,
+              }}
+            >
+              <MenuIcon />
+            </IconButton>
+    
+            <Drawer
+              {...{
+                anchor: "left",
+                open: drawerOpen,
+                onClose: handleDrawerClose,
+              }}
+            >
+              <div className={drawerContainer}>{getDrawerChoices()}</div>
+            </Drawer>
+    
+            <div>{femmecubatorLogo}</div>
+          </Toolbar>
+        );
+      };
+
+      const getDrawerChoices = () => {
+        return headersData.map(({ label, href }) => {
+          return (
+            <Link
+              {...{
+                component: RouterLink,
+                to: href,
+                color: "inherit",
+                style: { textDecoration: "none" },
+                key: href,
+              }}
+            >
+              <MenuItem>{label}</MenuItem>
+            </Link>
+          );
+        });
+      };
+
+      
+
+
+      const femmecubatorLogo = (
+        <Link href ='./'>
+        <Typography variant="h6" component="h1" className={logo}>
+          GIDIFUSION
+        </Typography>
+        </Link>
+      );  
+
+
+      const getMenuButtons = () => {
+        return headersData.map(({ label, href }) => {
+          return (
+            
+            
+            <Button
+              {...{
+                key: label,
+                color: "inherit",
+                to: href,
+                component: RouterLink,
+                className: menuButton,
+              }}
+            >
+              {label}
+            </Button>
+            
+          );
+        });
+      };
+
    return (
      <ThemeProvider theme={theme}>
        
-     <div className="Nav" >
+    
        <header className="AppHeader">
          <AppBar  className='app-b'color='secondary' position="static">
-           <Toolbar>
-          <IconButton
-            color='inherit'
-            aria-label='Menu'
-            className={classes.toggleDrawer}
-            >
-          
-          </IconButton>
-             <NavLink to ='/' style={{ textDecoration: 'none', color:'#fff',flexGrow : 1}}>
-             <Typography variant='h4' color='seconadry' className={classes.appTitle}>
-                 GIDIFUSION
-             </Typography>
-             </NavLink>
-             
-             <NavLink to ='./Fan'>
-             <Button 
-              
-             variant= 'contained'
-             size='small'
-             className={classes.ticketbutton} >
-                
-               Ticket
-               < ConfirmationNumberSharpIcon />
-             </Button>
-             </NavLink>
-
-             <NavLink to ='./About'>
-             <Button 
-             color='primary' 
-             variant= 'contained'
-             size='small'
-             className={classes.headerbutton} >
-               About Us
-             </Button>
-             </NavLink>
-
-           </Toolbar>
+         {mobileView ? displayMobile() : displayDesktop()}
          </AppBar>
           </header>
      
-    </div>
+    
     
     </ThemeProvider>
   );

@@ -9,16 +9,7 @@ import { Typography, } from '@material-ui/core';
 const theme = createMuiTheme({
   
     typography:{
-      h5:{
-        paddingBottom:0,
-        fontFamily: 'Black ops one',
-        marginBottom:0,
-        borderBottom:0,
-        fontsize:5,
-        color:'#ffffff'
-        
-        
-      },
+    
   
       h3: {
         fontFamily:'Black ops one',
@@ -31,20 +22,7 @@ const theme = createMuiTheme({
         
       },
   
-      subtitle2:{
-                fontSize:30,
-                marginTop:0,
-                borderTop:0,
-                marginBottom:40,
-                paddingTop:0,
-                fontFamily:'shadows Into light'
-      },
-  
-
-      subtitle1:{
-        fontStyle: 'italic',
-
-      },
+     
 
       body1:{
               marginBottom:30,
@@ -55,11 +33,7 @@ const theme = createMuiTheme({
               fontWeight:'300'
       },
         
-            caption:{
-              marginTop:30,
-              align:'Center',
-              
-            }
+          
 
     },
 
@@ -100,7 +74,8 @@ const useStyles = makeStyles((theme)=>({
   },
 
 
-  aboutpaper: {
+  
+aboutpaper: {
     display: 'flex',
     justifyContent: 'center',
     flexWrap: 'wrap',
@@ -111,49 +86,9 @@ const useStyles = makeStyles((theme)=>({
     },
   
   
-    paper: {
-      
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-    },
-
-
-
-    avatar: {
-        marginTop:15,
-        marginBottom: 0,
-        
-      
-    },
-    form: {
-      width: '100%', // Fix IE 11 issue.
-      
-    },
-    submit: {
-      marginBottom:10,
-      marginTop:5,
-    },
   
-    headerbutton:{
-        marginLeft:10,
-        
-    },
 
-    formetitle: {
-      
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-    },
     
-    realform: {
-      width: '100%', // Fix IE 11 issue.
-      
-    },
-    signup: {
-      
-    },
 
     
   }));

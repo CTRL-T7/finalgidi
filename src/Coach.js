@@ -3,28 +3,18 @@ import  './App.css';
 import  Paper from '@material-ui/core/Paper';
 import  Grid from '@material-ui/core/Grid';
 import  { makeStyles, ThemeProvider, createMuiTheme} from '@material-ui/core/Styles';
-import { Typography, TextField, FormLabel,  FormControlLabel } from '@material-ui/core';
-import  Radio from '@material-ui/core/Radio';
-import  RadioGroup from '@material-ui/core/RadioGroup';
+import { Typography} from '@material-ui/core';
+
 import  Button from '@material-ui/core/Button';
-import  FormControl from '@material-ui/core/FormControl';
 import 'fontsource-roboto';
 import "@fontsource/black-ops-one";
-import Link from '@material-ui/core/Link';
-import Box from '@material-ui/core/Box';
-import TwitterIcon from '@material-ui/icons/Twitter';
-import InstagramIcon from '@material-ui/icons/Instagram';
-import EmailIcon from '@material-ui/icons/Email';
-import IconButton from '@material-ui/core/IconButton';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 
-import Checkbox from '@material-ui/core/Checkbox';
-import Popper from '@material-ui/core/Popper';
 import Athlete from "./Athlete";
 import Team from   "./Team";
+import Addplayer from './Addplayer';
 
 
 
@@ -145,10 +135,6 @@ const theme = createMuiTheme({
       marginTop:5,
     },
   
-    headerbutton:{
-        marginLeft:10,
-        
-    },
 
     formetitle: {
       
@@ -161,9 +147,7 @@ const theme = createMuiTheme({
       width: '100%', // Fix IE 11 issue.
       
     },
-    signup: {
-      
-    },
+  
 
     teamMembers:{
       marginBottom: 20,
@@ -172,18 +156,7 @@ const theme = createMuiTheme({
 
 
 
-  function Copyright() {
-    return (
-      <Typography variant="body2" color="textSecondary" align="center">
-        {'Copyright © '}
-        <Link color="inherit" href="https://material-ui.com/">
-          TsurgeNg
-        </Link>{' '}
-        {new Date().getFullYear()}
-        {'.'}
-      </Typography>
-    );
-  }
+  
  
 
   function getStepContent(stepIndex) {
@@ -197,7 +170,9 @@ const theme = createMuiTheme({
           <Team/>
         )
       case 2:
-        return 'This is the bit I really care about!';
+        return (
+          <Addplayer/>
+        )
       default:
         return 'Unknown stepIndex';
     }
@@ -210,12 +185,10 @@ const theme = createMuiTheme({
   
  
     const classes = useStyles();
-    const paperStyle={padding:'30px 20px',   paddingLeft: "15px", paddingRight: "15px", width:"100%", maxWidth:400, margin: '20px auto', marginBottom:250, marginTop:100,}
-    const gdStyle={ margin: '10px auto',}
+    const paperStyle={padding:'30px 20px]',   paddingLeft: "15px", paddingRight: "15px", width:"100%", maxWidth:400, margin: '20px auto', marginBottom:250, marginTop:100,}
+    const gdStyle={ margin: '10px auto', marginBottom:100, marginTop:100, paddingBottom:100, paddingTop:100}
 
-    const handleChange = (event) => {
-        setState({ ...state, [event.target.name]: event.target.checked });
-      };
+  
 
       function getSteps() {
         return ['Create Coach Profile', 'Create Team', 'Add Players'];
