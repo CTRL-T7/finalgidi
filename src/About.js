@@ -2,7 +2,7 @@ import  React from  'react';
 import  './App.css';
 import  Paper from '@material-ui/core/Paper';
 import  Grid from '@material-ui/core/Grid';
-import  { makeStyles, ThemeProvider, createMuiTheme} from '@material-ui/core/Styles';
+import  { makeStyles, ThemeProvider, createMuiTheme} from '@material-ui/core';
 import { Typography, } from '@material-ui/core';
 
 

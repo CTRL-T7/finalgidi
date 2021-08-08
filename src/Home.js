@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import  { makeStyles, ThemeProvider, createMuiTheme} from '@material-ui/core/Styles';
+import  { makeStyles, ThemeProvider, createMuiTheme} from '@material-ui/core/';
 import  Typography from '@material-ui/core/Typography';
 
 import  Paper from '@material-ui/core/Paper';
