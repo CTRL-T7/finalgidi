@@ -13,6 +13,28 @@ import About from "./About";
 import Footer from "./Footer";
 import Coach from "./Coach"
 import Soon from  "./Soon"
+import { TimerSharp } from '@material-ui/icons';
+import axios from 'axios';
+
+
+
+handleSubmit = item => {
+    this.toggle();
+    if (item.id) {
+    axios
+        .put(`http://localhost:8000/webapi/accounts/${item.id}/`, item)
+        .then(res => this.refreshList());
+    return;
+    }
+    axios
+      .post("http://localhost:8000/webapi/accounts/", item)
+      .then(res => this.refreshList());
+};
+handleDelete = item => {
+    axios
+        .delete(`http://localhost:8000/webapi/accounts/${item.id}`)
+        .then(res => this.refreshList());
+};
 
 function App() {
   return(
